@@ -133,6 +133,8 @@ var getSongItem = function(element) {
 
              if (songItemNumber !== currentlyPlayingSong) {
                  songItem.innerHTML = songItemNumber;
+             } else {
+                 songItem.innerHTML = pauseButtonTemplate;
              }
          });
 
