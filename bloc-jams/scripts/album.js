@@ -58,18 +58,27 @@ var createSongRow = function(songNumber, songName, songLength) {
      }
  };
 // discuss the following two functions
+//recursive function
 var findParentByClassName = function(element, targetClass) {
-    if (element.parent('a').length !> 0) {
-        alert("No parent found");
-    } else if (element.parent != parent.classname) {
-        alert("No parent found with that class name")
-    } else if (element) {
-        var currentParent = element.parentElement;
-        while (currentParent.className != targetClass && currentParent.className !== null) {
-            currentParent = currentParent.parentElement;
+    if (element.className == targetClass) {
+        return element;
+    } else if (element.parentElement == undefined) {
+        alert("No parent found with that class name");
+        return undefined;
+    } else {
+        return findParentByClassName(element.parentElement, targetClass);
     }
-        return currentParent;
-    }
+//    //if (element.parent('a').length !> 0) {
+//        //alert("No parent found");
+//    //} else if (element.parent != parent.classname) {
+//        //alert("No parent found with that class name")
+//    //} else if (element) {
+//        var currentParent = element.parentElement;
+//        //while (currentParent.className != targetClass && currentParent !== null) {
+//            currentParent. = currentParent.parentElement;
+//    }
+//        return currentParent;
+//    }
 };
 
 var getSongItem = function(element) {
