@@ -1,8 +1,18 @@
-//In this checkpoint
+//In this assignment
 //
-//We want to use the album data stored in fixtures.js to track our current song and album by storing them in variables.
-//We want to match the currently playing song's object with its corresponding index in the songs array.
-//When we call the next and previous functions in our application, they should increment or decrement the index of the current song in the array, respectively.
+//Create a setSong function that takes one argument, songNumber, and assigns setSong and currentSongFromAlbum a new value based on the new song number.
+//Replace all instances where we manually assign values to these functions with a call to setSong().
+//Write a function named getSongNumberCell that takes one argument, number, and returns the song number element that corresponds to that song number.
+//Replace all instances where we use the selector with a getSongNumberCell() call.
+
+var setSong = function(songNumber) {
+  currentlyPlayingSongNumber = parseInt(songNumber);
+  currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+};
+
+var getSongNumberCell = function(number){
+  return $('.song-item-number[data-song-number="' + number +'"]');
+};
 
 var setSong = function(songNumber) {
      if (currentSoundFile) {
@@ -38,7 +48,7 @@ var createSongRow = function(songNumber, songName, songLength) {
        + ' <td class="song-item-duration">' + songLength + '</td>'
        + '</tr>'
        ;
-     var $row = $(template);
+     var $row = $(template)
 
      var clickHandler = function() {
         var songNumber = parseInt($(this).attr('data-song-number'));
@@ -174,6 +184,7 @@ var previousSong = function() {
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
     updatePlayerBarSong();
+
 
     // Update the Player Bar information
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
