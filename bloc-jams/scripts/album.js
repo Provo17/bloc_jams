@@ -215,6 +215,18 @@ var previousSong = function() {
 
 };
 
+var togglePlayFromPlayerBar = function() {
+    if (currentSoundFile !== null) {
+        if (currentSoundFile.isPaused()) {
+            currentSoundFile.play();
+            $(this).html(playerBarPauseButton);
+        } else {
+            currentSoundFile.pause();
+            $(this).html(playerBarPlayButton);
+        }
+    }
+};
+
 var updatePlayerBarSong = function() {
 
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
