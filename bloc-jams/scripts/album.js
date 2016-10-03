@@ -202,18 +202,15 @@ var previousSong = function() {
 };
 
 var togglePlayFromPlayerBar = function() {
-//  if (currentSoundFile.pause()) {
-//      $(this).html(playerBarPlayButton)
-//  } else if (currentSoundFile.isPaused()) {
-//      $(this).html(playerBarPauseButton);
-//  }
-        if (currentSoundFile.pause()) {
+    if (currentSoundFile !== null) {
+        if (currentSoundFile.isPaused()) {
             currentSoundFile.play();
             $(this).html(playerBarPauseButton);
         } else {
             currentSoundFile.pause();
             $(this).html(playerBarPlayButton);
         }
+    }
 };
 
 var updatePlayerBarSong = function() {
