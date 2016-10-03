@@ -202,10 +202,6 @@ var previousSong = function() {
 };
 
 var togglePlayFromPlayerBar = function() {
-<<<<<<< HEAD
-
-=======
->>>>>>> assignment_33
     if (currentSoundFile !== null) {
         if (currentSoundFile.isPaused()) {
             currentSoundFile.play();
