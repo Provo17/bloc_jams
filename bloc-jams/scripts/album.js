@@ -213,6 +213,11 @@ var previousSong = function() {
 };
 
 var togglePlayFromPlayerBar = function() {
+
+    if (currentSoundFile == null) {
+      currentSoundFile.play();
+    };
+
     if (currentSoundFile !== null) {
         if (currentSoundFile.isPaused()) {
             currentSoundFile.play();
@@ -231,6 +236,7 @@ var togglePlayFromPlayerBar = function() {
              var $seekBar = $('.seek-control .seek-bar');
 
              updateSeekPercentage($seekBar, seekBarFillRatio);
+
          });
      }
  };
@@ -279,6 +285,10 @@ var togglePlayFromPlayerBar = function() {
              $(document).unbind('mouseup.thumb');
          });
      });
+};
+
+var setCurrentTimeInPlayerBar = function(currentTime) {
+    var $currentTime = $('.current-time')
 };
 
 var updatePlayerBarSong = function() {
